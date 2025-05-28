@@ -27,6 +27,12 @@ function getHeader(filename = 'common/header.html') {
     const path = window.location.pathname;
 
     // Count how deep the file is compared to top level
+    const negate = 0;
+    if (path.contains('github.io')){
+        negate = 2;
+    } else {
+        negate = 6;
+    }
     const depth = path.split('/').length - 6;
 
     // Build the relative path
