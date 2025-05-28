@@ -28,7 +28,7 @@ function getHeader(filename = 'common/header.html') {
 
     // Count how deep the file is compared to top level
     const negate = 0;
-    if (path.contains('github.io')){
+    if (path.includes('github.io')){
         negate = 2;
     } else {
         negate = 6;
