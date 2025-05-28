@@ -1,8 +1,8 @@
-.blogElementHalf {
-    width: 50%;
-    margin-left: 25%;
+.blogHeader {
     border: 1px black solid;
     border-radius: 1%;
+    float: right;
+    max-height: 13em;
 }
 
 .blogElement {
@@ -37,6 +37,18 @@
 .blogSidebarProfile {
     width: 100%;
     border-radius: 1%;
+}
+
+#sidebar {
+    height: 100%;
+}
+
+.blogTitleBar {
+    background-color: rgb(252, 252, 251);
+    box-shadow: rgb(130, 130, 130) 0px 2px 5px;
+    color: rgb(130, 130, 130);
+    font-weight: bolder;
+    padding: 2%;
 }
 
 header ul {
