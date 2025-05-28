@@ -1,0 +1,68 @@
+.blogElementHalf {
+    width: 50%;
+    margin-left: 25%;
+    border: 1px black solid;
+    border-radius: 1%;
+}
+
+.blogElement {
+    width: 100%;
+    border: 1px black solid;
+    border-radius: 1%;
+}
+
+.blogMain {
+    margin:auto;
+    float: left;
+    clear: none;
+    display: flex;
+}
+
+.blogContent a {
+    color: teal;
+}
+
+.blogContent a:hover{
+    color: red;
+}
+
+.blogContent {
+    width: 75%;
+}
+
+.blogSidebar {
+    width: 25%;
+}
+
+.blogSidebarProfile {
+    width: 100%;
+    border-radius: 1%;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+header li {
+  float: left;
+}
+
+header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+header li a:hover {
+  background-color: #111;
+}
+
+a {
+    text-decoration: none;
+}
