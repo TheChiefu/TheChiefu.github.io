@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/w3.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../scripts/common.js"></script>
+    <script src="../../scripts/blog.js"></script>
+    </style>
+</head>
+
+<header>
+    <div id="header"></div>
+</header>
+
+<body class="w3-light-grey">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+
+            <div class="blogMain">
+
+                <!-- Content - Left Column -->
+                <div class="w3-white w3-card-4 blogContent">
+
+                    <div class="w3-container">
+
+                        <div class="blogTitleBar">
+                            <table>
+                                <td width="90%">
+                                    <h1 id="title">Revisiting Reclamation</h1>
+                                    <h4 id="date" class="w3-tag w3-teal w3-round">Written: 2022-05-21</h4>
+                                </td>
+                                <td width="10%">
+                                    <img src="header.jxl" class="blogHeader"
+                                        onerror="this.onerror=null; this.src='header.jpg'"
+                                        alt="Sunset next to a lake-town from the top of a building." />
+                                </td>
+                            </table>
+                        </div>
+
+                        <br />
+
+                        <p>
+                            So it’s been an inside joke among my friend’s group that Reclamation was so poorly made that
+                            no amount of optimizing would fix it. The problem originally was that when I made the demo
+                            back in 2017 or so when I was still in high school and had pretty much zero experience in
+                            coding whatsoever. I mean I knew a tiny bit of coding; I knew a tiny bit of JavaScript from
+                            a class that taught us it using Khan Academy and worked on learning C# / Unity when I made
+                            tiny demos of Taurus for Skills USA in 2016 but nothing extensive.
+                        </p>
+                        <p>
+                            To get some backstory on the development of the Reclamation Demo head to this post <a
+                                href="../2017-09-02/article.html">here</a>, but the gist of it is that our computer
+                            technology teacher left during my last year of high school and our new one didn’t have any
+                            class course; so he gave us an option to work on a project for the rest of the year. Our
+                            class decided to work on a game project and I tasked myself with gathering the work of
+                            everyone else and putting it into a game engine. Suffice to say I was very inexperienced
+                            with Unity, C#, modeling, etc; but I had a ton of fun doing it. That being said because I
+                            had no idea what I was doing everything was horribly unoptimized.
+                        </p>
+
+                        <img src="reclamation_old_snow.jxl" class="blogElement"
+                            onerror="this.onerror=null; this.src='reclamation_old_snow.jpg'"
+                            alt="Bandit encampment in a snowy environment with a roaring fire." />
+                        <p style="text-align: center;"><i>9-10 FPS on a relatively barren scene (running on an AMD 3900X
+                                and GTX 3060)</i></p>
+
+                        <p>
+                            So what was wrong with the demo in terms of technical performance? Well for the longest time
+                            I didn’t really know the issue with the game’s performance because one, I didn’t have the
+                            source code anymore, and two didn’t know about how unity handled scenes. Luckily one day
+                            when I was backing up my old google drives and hard drives I decided to log into my high
+                            school email and found the files just sitting there. I promptly downloaded them and made a
+                            back up of them on my local drive and personal drive. In early 2020 I tried to see if I
+                            could re-open the project and optimize the project but it proved too intensive due to how
+                            many files were unused but still in some way tied to the game. Meaning if I deleted a few
+                            folders of unused textures or models a rock somewhere in the level would disappear or turn
+                            purple.
+                        </p>
+
+                        <p>
+                            I decided to put it aside, until on one very boring April weekend of 2022 I decided that I’d
+                            decide to do try again. This time I really studied the folders and files to see what was
+                            being used, making a list of files that were actually being used and one’s that weren’t.
+                            Eventually a couple hours later I reduced the project down to a few key folders of things
+                            actually being used. The problem originally was that back in high school I just imported a
+                            bunch of assets from the asset store and kept them there, meaning I never used a lot of the
+                            files and ended up bloating the project. One cool thing I discovered about the project
+                            though is that I found some unused objects that were not in the demo build, so I got to
+                            re-include them again; such as the watch tower near the snow camp. However, now that I got
+                            rid of unnecessary files the next step was optimization of the game world and code.
+                        </p>
+
+                        <img src="reclamation_source_compare.jxl" class="blogElementMedium"
+                            onerror="this.onerror=null; this.src='reclamation_source_compare.jpg'"
+                            alt="2 screenshots showing comparison between the original source code and the new source code." />
+                        <p style="text-align: center;"><i>Showing differences in project organization between old/new
+                                source project (Left: Old / Right: New)</i></p>
+
+                        <p>
+                            This proved to be the biggest sink of time because when I first made the project the only
+                            unity experience I had was messing around with the Unity terrain editor in the old versions
+                            back in 2011-2014, and coding with C# in open space environments with Taurus. So then to go
+                            from those simple environments to making an “open world” demo with multiple models, weather,
+                            time of day, etc was a huge leap. The biggest problem was the fact that I just cranked up
+                            the details and left it. So the draw distance was maxed, trees would render at almost full
+                            detail meters away from the camera, the ocean waves would be super high detail with
+                            displacements/reflection, and tons of other graphically intensive options.
+                        </p>
+
+                        <p>
+                            My first place of optimization was the water since it took up the most resources; what I
+                            ended up doing was replacing the Gerstner Displace component on the Water4 model that I used
+                            with a simpler but still visually appealing “Water Pro” model, as well as turning off bodies
+                            of water that weren’t viewable in the camera view. This dramatically improved performance
+                            since for some reason even though the camera wasn’t supposed to draw out of view objects it
+                            still was. The next area of world performance was to edit the trees models. This was a
+                            relatively easy fix, just edit the draw distance and adjust the level of detail in which the
+                            higher poly version would be replaced with the billboard. I may have adjusted it a bit too
+                            far into the performance region since in the revision some relatively close trees are
+                            billboards; but I still think it looks fine. There were other adjustments to things like
+                            texture sizes on the terrain, LOD adjustments, reducing particle counts in effects, etc but
+                            all these adjustments pail in to how much time it took to redo the code.
+                        </p>
+
+                        <p>
+                            The code, oh my god… the code. I knew I didn’t know much about programming in general at the
+                            time and I was pretty much stringing together whatever I could find online but wow; was this
+                            the definition of spaghetti code. There were components that pretty much depended on each
+                            other down several levels, functions that didn’t even work or had no functionality
+                            whatsoever, classes that managed everything about an object, and multiple large areas of
+                            code in the <b>update function</b>! I took the task of rewriting almost all the code since a
+                            lot of
+                            it was unusable or didn’t function as intended.
+                        </p>
+
+                        <p>
+                            My basic goal was to reduce the amount of dependency everything had on each other and break
+                            down the code into smaller components, the biggest example being the camera and it’s
+                            manager. Since in the original demo everything was under one master class called
+                            <b>DemoOptions.cs</b> and everything from keybindings for the camera, camera locations, UI
+                            elements, audio, lighting, etc were all managed there. There’s nothing inherently wrong with
+                            what’s essentially the game manager but I felt as if the original class was going about it
+                            the wrong way; so I split it up into several different controller classes. I also added
+                            functionality to the demo that was supposed to be there in the beginning but was cut or
+                            doesn’t work (but is supposed to).
+                        </p>
+
+                        <img src="reclamation_code.jxl" class="blogElementMedium"
+                            onerror="this.onerror=null; this.src='reclamation_code.jpg'"
+                            alt="Screenshot of VSCode showing old code with hard coded values." />
+                        <p style="text-align: center;"><i>Old code with hard-coded values and unnecessary called in the
+                                update function.</i></p>
+
+                        <p>I reorganized the code as follows:</p>
+                        <p>
+                        <table class="blogTable">
+                            <tr>
+                                <th>Original</th>
+                                <th>Redux</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>DemoOptions.cs</b><br />
+                                    <i>Manages entire player controls</i>
+                                </td>
+                                <td>
+                                    <b>SwitchCams.cs</b><br />
+                                    <i>Switches between static camera positions</i>
+                                    <br /><br />
+                                    <b>AudioController.cs</b><br />
+                                    <i>Adjusts music, sounds, and master</i>
+                                    <br /><br />
+                                    <b>Climates.cs</b><br />
+                                    <i>Allows for multiple weather patterns to used/added (used as scriptable
+                                        object)</i>
+                                    <br /><br />
+                                    <b>Quit.cs</b><br />
+                                    <i>Adds a quit button/keybinding; so you don’t have to Alt-F4 just to quit</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>WeatherController.cs </b><br />
+                                    <i>Hard coded values of weather patterns</i>
+                                </td>
+                                <td>
+                                    <b>WeatherController.cs</b><br />
+                                    <i>Adjusts weather of in-game scene using any amount of Climate.cs scriptable
+                                        objects</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>DayCycle.cs</b><br />
+                                    <i>Didn’t work, was WIP at the time</i>
+                                </td>
+                                <td>
+                                    <b>TimeOfDay.cs </b><br />
+                                    <i>Adjusts time of day and lighting in real-time</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>fpsCounter.cs</b><br />
+                                    <i>stayed the same</i>
+                                </td>
+                                <td>
+                                    <b>fpsCounter.cs</b><br />
+                                    <i>stayed the same</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>AudioBoost.cs</b><br />
+                                    <i>stayed the same</i>
+                                </td>
+                                <td>
+                                    <b>AudioBoost.cs</b><br />
+                                    <i>stayed the same</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>PlayerMovement.cs</b><br />
+                                    <i>Didn’t work as intended in original demo, only allowed for UI control</i>
+                                </td>
+                                <td>
+                                    <b>PlayerController.cs</b><br />
+                                    <i>Adds Free Cam support</i>
+                                </td>
+                            </tr>
+                        </table>
+                        </p>
+
+                        <p>
+                            I did cut a few original classes however that either I didn’t use in the demo or felt didn’t
+                            serve much purpose such as: PlaceName.cs (displays place name like in Skyrim when
+                            approaching new area) and ScreenCap.cs (takes screenshot and saves to file).
+                        </p>
+
+                        <p>
+                            Reorganizing the code wasn’t just for making it easier to understand and read, but also from
+                            a gameplay sense. Since because a lot of the original code was either hard coded or didn’t
+                            work some features in the original demo acted strangely. Like how the time of day could only
+                            be adjusted when you unchecked the checkbox when it was supposed to be the opposite, the sun
+                            appearing underneath the map when at night time, the volume controls barely worked, and then
+                            time of day wouldn’t even go automatically. So once I fixed the code I then went onto
+                            overhauling the UI.
+                        </p>
+
+                        <p>
+                            The UI originally was really a last minute thought so the color scheme and design choice was
+                            a bit rushed. Like I mentioned before some options didn’t work and if they did they behaved
+                            oddly, so when I fixed the code I could set out on fixing those standout issues and
+                            overhauling the UI. Here’s a list on options that I ended up correcting or adding:
+                        </p>
+
+                        <p>
+                        <ul>
+                            <li>Time of Day works correctly (sun turns off when below certain rotation value to avoid
+                                under-map lighting), and on automatic scale over time</li>
+                            <li>Volume adjusts as intended without sudden jump in volume</li>
+                            <li>Weather affects are less dramatic on tree leaves (before they were too intense)</li>
+                            <li>Added togglable sidebar that can be open/closed</li>
+                            <li>Added free-cam mode in which player can freely look around map</li>
+                            <li>Added “Quit” button that the user can click without resorting to forcefully stopping
+                                program</li>
+                        </ul>
+                        </p>
+
+                        <p>
+                            Now the game runs very smoothly! Granted not in all areas outside of the static cameras
+                            mode, since in free-cam mode I left all bodies of water on and wasn’t sure how to increase
+                            performance in that regard (unfortunately). But I’ve seen a dramatic improvement compared to
+                            the original version, I tested it again as of the writing of this post and saw that in the
+                            old version I got 8-12 FPS in the snow area, versus 40FPS with the same hardware. So I’d say
+                            overall it’s a success revitalizing and redoing an old high-school project over 5 years
+                            later.
+                        </p>
+
+                        <img src="recalmation_new.jxl" class="blogElement"
+                            onerror="this.onerror=null; this.src='recalmation_new.jpg'"
+                            alt="Nighttime scene next to a fence and mountain range, with lights illuminating the area." />
+                        <p style="text-align: center;"><i>Redux Version (Mining entrance, night time, light drizzle)
+                                w/Free Cam</i></p>
+
+                        <p>
+                            It’s also a testament on how awesome I think computers and software are, that I can take old
+                            code from years ago and made it run on newer hardware with improvements. I know it’s only 5
+                            years so granted the original still works, but seeing things like the Ocarina of Time PC
+                            port or other similar types of projects make me realize how cool coding really is. I could
+                            take a look at the code another 5 years from now and see what new features or optimization
+                            methods I can apply.
+                        </p>
+
+                        <p>
+                            Well that’s all from me, I felt like making a post about this after seeing my old archived
+                            post about the original game.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="w3-white  w3-card-4 blogSidebar">
+                    <div id="sidebar"></div>
+                </div>
+
+                <!-- End Grid -->
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+    </div>
+
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <br /><br />
+    </footer>
+
+</body>
+
+</html>

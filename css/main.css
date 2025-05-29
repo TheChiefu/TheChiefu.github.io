@@ -69,6 +69,17 @@
     padding: 2%;
 }
 
+.blogTable {
+    border-radius: 5px;
+    border: 2px ridge lightgray;
+}
+
+.blogTable table, th, td {
+    border: 1px solid lightgray;
+    padding: 5px;
+}
+
+
 header ul {
   list-style-type: none;
   margin: 0;

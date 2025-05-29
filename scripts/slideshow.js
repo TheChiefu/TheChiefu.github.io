@@ -1,26 +1,29 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = [1, 1];
+let slideId = ['mySlides', 'mySlides2']
+showSlides(1, 0);
+showSlides(1, 1)
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function plusSlides(n, idx) {
+  showSlides(slideIndex[idx] += n, idx);
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
+function showSlides(n, idx) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+  let x = document.getElementsByClassName(slideId[idx]);
+
+  if (n > x.length) {
+    slideIndex[idx] = 1;
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    
+  if (n < 1) {
+    slideIndex[idx] = x.length;
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+
+  let newIdx = slideIndex[idx] - 1;
+  let slide = x[newIdx];
+  slide.style.display = "block";
 }
