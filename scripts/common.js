@@ -1,20 +1,3 @@
-
-function getSidebar(){
-
-    const title = document.title.toLowerCase();
-    if (!title.startsWith('blog')) {
-        return;
-    }
-
-    const bar = document.getElementById('sidebar');
-    const sidebar = document.createElement('object');
-    sidebar.style.height = '100%';
-    sidebar.type = 'text/html';
-    sidebar.data = '../../common/sidebar.html';
-
-    bar.appendChild(sidebar);
-}
-
 function getHeader(filename = 'common/header.html') {
 
     const bar = document.getElementById('header');
@@ -27,9 +10,9 @@ function getHeader(filename = 'common/header.html') {
     const path = window.location.pathname;
 
     // Count how deep the file is compared to top level
-    let negate = 2;
+    let negate = 6;
     if (!path.includes('github.io')){
-        negate = 3;
+        negate = 2;
     }
     console.log(negate)
     const depth = path.split('/').length - negate;
@@ -48,7 +31,6 @@ function getHeader(filename = 'common/header.html') {
 }
 
 
-window.onload = function() {
-    getSidebar();
+window.addEventListener('load', function() {
     getHeader();
-};
+});
