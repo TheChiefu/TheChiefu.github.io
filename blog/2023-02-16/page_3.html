@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/w3.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../scripts/common.js"></script>
+    <script src="../../scripts/blog.js"></script>
+    </style>
+</head>
+
+<header>
+    <div id="header"></div>
+</header>
+
+<body class="w3-light-grey">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+
+            <div class="blogMain">
+
+                <!-- Content - Left Column -->
+                <div class="w3-white w3-card-4 blogContent">
+
+                    <div class="w3-container">
+
+                        <div class="blogTitleBar">
+                            <table>
+                                <td width="50%">
+                                    <h1 id="title">Being Proactive</h1>
+                                    <h4 id="date" class="w3-tag w3-teal w3-round">Written: 2023-02-16</h4>
+                                </td>
+                                <td width="50%">
+                                    <img src="header.jxl" class="blogHeader"
+                                        onerror="this.onerror=null; this.src='header.jpg'"
+                                        alt="Woman with her face planted inside of an open book tiredly." />
+                                </td>
+                            </table>
+                        </div>
+
+                        <br />
+
+                        <h2 id="t3">Organizing My Media</h2>
+                        <p>
+                            What I mean by “organizing” my media collection is that I have an assortment of: Blu-rays,
+                            CDs, and other media on my devices that I keep for entertainment. However they’re either
+                            incomplete (songs without lyrics, artists, etc), too big (some 4K movies are 88GBs big), or
+                            unfound (obscure Japanese songs I can’t find the source to). So the goal there is to
+                            organize that data so that it’s in a place where I feel like it’s “finished” and organized.
+                        </p>
+
+                        <h3 id="t3-1">Music</h3>
+                        <p>
+                            I guess a more concrete example of what I mean by organizing for example (that pertains to
+                            music) would be my old YouTube playlist backup. So back in 2014 or so I used to use YouTube
+                            for my music collection but noticed over time videos would get taken down. In 2017 I used a
+                            tool to convert all the videos to mp3 files and saved them to my phone as a backup so I’d
+                            never lose the songs. For a time this was fine, however as I got into CDs more over time I
+                            noticed how much better the CD quality sounded over YouTube videos.
+                        </p>
+
+                        <p>
+                            This was because most YouTube videos (seem to) cap audio at 128kbps mp3 quality and CDs are
+                            uncompressed audio. In layman’s terminology, it’s like listening to someone talk on the
+                            phone vs in person (not as bad as a phone, but not too far off). Once I heard how much of a
+                            massive difference CD sounded over the YouTube songs I started an adventure in college to
+                            find the sources of my YouTube playlists over time. For more popular music like: The
+                            Beatles, Metallica, and the like it was easy; just type in the artist and album and buy the
+                            CD.
+                        </p>
+
+                        <p>
+                            However, since all my backups were from YouTube all I had to go off of was the title of the
+                            video. Meaning if I wanted to find some obscure Japanese song or anime soundtrack and the
+                            video title didn’t have all the information there, I’d have no where to do. Doubly so if the
+                            original video was deleted and no alternative was uploaded. Triply (is that word?) so, since
+                            back then I didn’t know any Japanese so looking up obscure media was a shot in the dark.
+                        </p>
+
+                        <p>
+                            What ended up happening was, I bought all the music I could find at stores, online, etc for
+                            as many songs as I could (I had like 3000 songs between all my playlists) and keeping the
+                            remaining unfound media as 128kbps mp3 files on my computer laying remnant. Over the years I
+                            slowly chipped away at some songs, but some seemed impossible to find; until at the
+                            beginning of this year I seemed to have made a breakthrough. Now that I crammed thousands of
+                            Japanese words into my head over the years the previously obscure media that I couldn’t find
+                            the sources to, I was now able to. I bought and imported music over the last couple weeks
+                            and have gotten it down my YouTube collection to 10 unknown songs (9 which have names but I
+                            can’t find a CD quality version anywhere but 1 with a name I can’t seem to match anywhere,
+                            it’s literally called “Touhou Song”).
+                        </p>
+
+                        <p>
+                            While I search for those I also have been adding lyrics to every song in my collection
+                            (13,330 according to my phone; at least 40% are instrumentals), converting the meta-data on
+                            my Japanese albums to contain the Japanese original names and artists, and overall cleaning
+                            up everything. So instead of say a song being: “Hikouki Gumo by Yumi Arai” it says “ひこうき雲 –
+                            荒井由実. Although it seems pointless (and truthfully it kind of is) I noticed over time it
+                            really helps me reinforce words I’ve learned over time. Especially when adding lyrics since
+                            there’s been a couple times where I had to transcribe lyrics and it gave me some listening
+                            practice.
+                        </p>
+
+                        <h3 id="t3-2">TV and Movies</h3>
+                        <p>
+                            For this collection I don’t have much of a story like I do with my music, but still it’s
+                            something that bothered me for a bit so I decided to tackle it. Currently my TV shows are
+                            90% English so organizing them isn’t too bad, however some of the anime I have is from US/UK
+                            releases so I had to do some work on them to get them “organized” to my liking.
+                        </p>
+
+                        <p>
+                            I changed the names of each episode to the original Japanese ones and use what’s called an
+                            “OCR” or “Optical Character Recognition” program on the subtitles. On Blu-rays, subtitles
+                            are bitmap image files and the OCR takes those images and tries to figure out a text
+                            equivalent character of said file. When it’s done running I can use the extracted text (as
+                            .srt files) and add them back to the movie file. I did this since some devices don’t support
+                            certain subtitle files but support “srt” ones universally.
+                        </p>
+
+                        <p>
+                            Additionally since some audio types are not supported on all devices (mainly my phone and
+                            tablet) such as Dolby Digital 7.1 audio, I use a combination of software (mainly ffmpeg) to
+                            convert the audio to FLAC files (which all devices can read) and recombine the audio back
+                            into the TV/movie file. I mainly do this for movies since most TV shows aren’t using
+                            surround sound, so it’s not as a monumental task as it seems.
+                        </p>
+
+                        <p>
+                            As for movies I noticed that all my 4K HDR movies seemed to be around 60-80 GBs per movie
+                            and wanted to reduce those sizes for my portable devices. What I used to do when I traveled
+                            was copy 1-2 movies to my phone’s SD card and hope that’d be enough. However I got
+                            frustrated (especially doing long flights/days) since I’d run out of things to watch. So I
+                            thought of re-encoding videos to get smaller versions for my phone, but with HDR movies I
+                            noticed that the encoding would be off and never worked so I put it off.
+                        </p>
+
+                        <p>
+                            However, recently with the AV1 encoder being more well supported now I’ve been able to
+                            reduce file sizes significantly. A 80GB movie could be compressed down to 8-12GBs with
+                            proper color mapping. Additionally, even when I try pixel peeping on my TV I couldn’t tell a
+                            difference between the source and compressed version. So I started to use my computer to run
+                            a few hours a day to get my movie collection down to a small enough size to put all on my
+                            small devices.
+                        </p>
+
+                        <h3 id="t3-3">Concluding Thoughts on Media Organization</h3>
+                        <p>
+                            All of this is very unneeded and over the top, but I guess at some point I deemed it
+                            necessary for the sake of convenience (especially when traveling in terms of my movies).
+                            Also, since it was in the back of my head I deemed it necessary to figure out. I’m just glad
+                            I decided to take on this endeavor now instead of leaving it since I know in the back of my
+                            mind there was still old songs I haven’t listened to in years I wanted to find the sources
+                            of and wanted to put more media on my mobile devices without swapping SD cards.
+                        </p>
+
+                        <p>
+                            Also at this point with how many hours I have put into researching, editing, and organizing
+                            my media (especially music) collection it’s kind of become apart of personal journey for me.
+                            It’s not just songs I like but a “thing” that I emotionally tie to parts of my life.
+                            Especially songs that I first listened to years ago and then found the sources to. Going
+                            from YouTube quality to full surround in some songs (especially obscure anime songs) was an
+                            emotional experience.
+                        </p>
+
+                        <hr />
+
+                        <div style="height: 100px;">
+                            <div style="float: left">
+                                <a href="page_2.html">↰ Previous Page</a>
+                                <br/><br/><a href="page.html">↶ First Page</a>
+                            </div>
+                            <div style="float: right">
+                                <a href="page_4.html">Next Page ↱</a>
+                                <br /><br /><a href="page_6.html">Last Page ↷</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="w3-white  w3-card-4 blogSidebar">
+                    <div id="sidebar"></div>
+                </div>
+
+                <!-- End Grid -->
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+    </div>
+
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <br /><br />
+    </footer>
+
+</body>
+
+</html>
