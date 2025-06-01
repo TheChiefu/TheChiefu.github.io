@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/w3.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/slideshow.css">
+    <script src="../../scripts/common.js"></script>
+    <script src="../../scripts/blog.js"></script>
+    <script src="../../scripts/slideshow.js" defer></script>
+    </style>
+</head>
+
+<header>
+    <div id="header"></div>
+</header>
+
+<body class="w3-light-grey">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+
+            <div class="blogMain">
+
+                <!-- Content - Left Column -->
+                <div class="w3-white w3-card-4 blogContent">
+
+                    <div class="w3-container">
+
+                        <div class="blogTitleBar">
+                            <table>
+                                <td width="75%">
+                                    <h1 id="title">End-Year Update</h1>
+                                    <h4 id="date" class="w3-tag w3-teal w3-round">Written: 2023-11-24</h4>
+                                </td>
+                                <td width="25%">
+                                    <img src="header.jxl" class="blogHeader"
+                                        onerror="this.onerror=null; this.src='header.jpg'"
+                                        alt="Rei Plush in front of a sunset in Japan." />
+                                </td>
+                            </table>
+                        </div>
+
+                        <br />
+
+                        <h2 id="t3">Settling in and Scanning Photos</h2>
+                        <p>
+                            After finally settling back at home and cleaning up my old room I started to get my daily
+                            route back in order. I used my work laptop to check emails everyday and join required
+                            meetings but knew that basically no work was being assigned anymore to people in AZ. So I
+                            mostly kept applying for jobs online and work on Taurus for fun. It was around this time the
+                            Unity Engine changes were popping up and I decided to drop work on Taurus in Unity in favor
+                            of Unreal and started a Udemy course there. I kept up with my Japanese but kept it to
+                            “reviews only” since I still felt stress in the whole process of moving and I didn’t want to
+                            overwhelm myself with tons of new words.
+                        </p>
+
+                        <p>
+                            At some point when getting something to drink from the refrigerator I saw some family photos
+                            from downstairs sitting on the couch. I asked if it was any photos I scanned before from the
+                            last few times I visited and found out they weren’t. Little did I know this was a start to a
+                            new adventure I’d embark for a month or two. By this time it was early September and I
+                            started to research how to scan 35mm film and figure out a way to add them to the family
+                            google drive. Well, I got a dedicated machine for scanning and started my work; I got
+                            binders and sheets to store them properly and took time time meticulously scanning each
+                            film. I think it took 3 weeks alone of mostly scanning throughout the day to get everything
+                            done.
+                        </p>
+
+                        <p>
+                            By this point I got the interest to just “get it all done” and ask for literally every
+                            photo, video, and tape we know of in the family to archive. I ended up getting an 8mm
+                            reel-to-reel machine to scan those tapes, a capture card to record old VHS tapes and etc.
+                            Towards the end of finishing those up I asked my uncle if he had anything left. My
+                            grandmother asked him and from what she said, his response was “he’ll regret asking”. A few
+                            days later I woke up and saw an 18 gallon tote, a big paper box, and stack of photos near
+                            the door.
+                        </p>
+
+                        <p>
+                            At this point I knew I needed to revise my archiving solution. For the longest time I
+                            thought I already scanned the majority of the family photos and put them on google drive.
+                            Mainly the container they were from, so photos in “Blue Binder #1” where put in a folder of
+                            the same name online. However now that there were over 2000 photos, finding anything you
+                            actually wanted was a nightmare. So during my process of scanning I decided that I’ll plan
+                            on writing a PHP/MySQL site to manage it for me.
+                        </p>
+
+                        <p>
+                            The idea is that “all I have to do” is make a landing page where people log into a website
+                            and search up the image they want. Instead of navigating through folders of random images on
+                            Google Drive. That brings us to where I am now; still scanning photos but nearing the end of
+                            the process.
+                        </p>
+
+                        <p>
+                            I’ll admit I have gone completely overkill on the family archive since 99% of people wanting
+                            to look at the photos will just take a glance at the photos and move on. However from doing
+                            lots of research on file formats, encoding methods, archival methods, etc; I’ve learned how
+                            to do it the “proper way”. My reasoning being that, if I’m going to do this once I’ll do it
+                            the right way instead of fixing things down the line later and regretting doing it
+                            improperly.
+                        </p>
+
+                        <!-- Image Gallery -->
+                        <p>
+                        <div class="slideshow-container">
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">1 / 4</div>
+                                <img src="2023-09-22_austin_8mm-film-recorder.jxl"
+                                    onerror="this.onerror=null; this.src='2023-09-22_austin_8mm-film-recorder.jpg'"
+                                    alt="8mm Film recorder sitting on a table displaying film content on a small screen."
+                                    style="width:100%" />
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">2 / 4</div>
+                                <img src="2023-10-01_austin_35mm-scans.jxl"
+                                    onerror="this.onerror=null; this.src='2023-10-01_austin_35mm-scans.jpg'"
+                                    alt="Film scanner showing scanned photo on screen with physical print out comparison in foreground."
+                                    style="width:100%" />
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">3 / 4</div>
+                                <img src="2023-10-01_family-photos-boxes.jxl"
+                                    onerror="this.onerror=null; this.src='2023-10-01_family-photos-boxes.jpg'"
+                                    alt="Boxes on a bed with folders of film and printout photos." style="width:100%" />
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">4 / 4</div>
+                                <img src="2023-12-11_austin-photo-scanning.jxl"
+                                    onerror="this.onerror=null; this.src='2023-12-11_austin-photo-scanning.jpg'"
+                                    alt="Desk covered in printout photographs and stacks on the side."
+                                    style="width:100%" />
+                            </div>
+
+                            <a class="prev" onclick="plusSlides(-1, 1)">❮</a>
+                            <a class="next" onclick="plusSlides(1, 1)">❯</a>
+
+                        </div>
+                        </p>
+                        <br>
+                        <!-- END OF IMAGES -->
+
+                        <p>
+                            What I mean by the “improper” way is how I had been archiving photos in the past. Which was
+                            scanning photos on a flatbed scanner, cropping them, editing them, etc then saving them to
+                            JPG at 60% quality. What this means is that if I find out later that the photo is reversed
+                            or something is incorrect I have to find the original document in-person and rescan it. The
+                            reason I can’t edit the JPG and flip the image is that every time you save a JPG it
+                            re-compresses the file; so multiple saves down the line it means it’ll get worse and worse.
+                        </p>
+
+                        <p>
+                            What I’ve started doing now is storing two copies. An <b>lossless</b> original scan at the highest
+                            quality I can store at and a <b>compressed / lossy</b> one that will be viewable online. What this
+                            allows is that the “lower” quality web versions can be looked at and “criticized”. If an
+                            error is spotted I can pull up the original scan and export a new compressed version. I have
+                            yet to do this with the original documents I scanned years ago, but I plan to do those
+                            months later since I don’t want to drive myself insane… (well more insane).
+                        </p>
+
+                        <p>
+                            The original reason why I only stored JPEG versions in the past was to make sure I wasn’t
+                            using too much space on Google Drive. But now that I plan on hosting the site, storage isn’t
+                            an issue anymore. I could keep rambling on about the photos but I’ll try to end this post
+                            with my future career and life prospects.
+                        </p>
+
+                        <hr />
+
+                        <div style="height: 100px;">
+                            <div style="float: left">
+                                <a href="page_3.html">↰ Previous Page</a>
+                                <br /><br /><a href="page.html">↶ First Page</a>
+                            </div>
+                            <div style="float: right">
+                                <a href="page_5.html">Next Page ↱</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="w3-white  w3-card-4 blogSidebar">
+                    <div id="sidebar"></div>
+                </div>
+
+                <!-- End Grid -->
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+    </div>
+
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <br /><br />
+    </footer>
+
+</body>
+
+</html>
