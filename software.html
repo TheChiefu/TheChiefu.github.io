@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Software</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="scripts/common.js"></script>
+    </style>
+</head>
+
+<header>
+    <div id="header"></div>
+</header>
+
+
+<body class="gradientBG">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:90%;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+            <div class="w3-white w3-card-4">
+                <div class="w3-container">
+
+                    <h1>Software:</h1>
+                    <p>
+                        Here is a collection of finished projects I have created over the years, with a description of
+                        how they work or how they were developed.
+                    </p>
+                    <hr>
+
+                    <h2>Happy Ball</h2>
+                    <table class="contentTable">
+                        <td width="50%">
+                            <p>
+                                Happy Ball was an interesting project, not because it was super challenging or too
+                                easy but because it deviated from what I generally did in projects. When I first
+                                learned how to use Unity when I was around 11 years old I wanted to make something
+                                simple to get into learning how to program. So I decided to make a 3D ball rolling
+                                game, but limit the axis to the X and Y coordinates so I can make levels easier. But
+                                eventually after learning the basics I wanted to make a different game using the new
+                                skills and ended up dropping hall ball.
+                            </p>
+                            <p>
+                                Years later and over the Winter Break of 2020 I wanted to challenge myself to make
+                                Happy Ball from scratch after years of learning new programming skills not just in
+                                C#, but also C++ and etc. Over the years of learning I found out how to save file
+                                data, load from paths, modify game-objects in real time depending on the situation,
+                                and etc. So I went full throttle into making Happy Ball. I started from the basics
+                                of making a 2D side-scrolling level and made “prefab” objects that I could use in
+                                any new level I wanted to create. I setup everything modular so levels could
+                                automatically textured based on settings, and give win requirements all from one
+                                manager. I didn’t have to hard code anything in and on top of that, the player could
+                                customize their look!
+                            </p>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <img src="images/software/hb_gameplay.jxl" class="blogElement"
+                                        onerror="this.onerror=null; this.src='images/software/hb_gameplay.jpg'"
+                                        alt="A blue spherical ball in the air in a industrial environment." />
+                                </tr>
+                                <tr>
+                                    <p><a href="https://github.com/TheChiefu/HappyBall" target="_blank">Source Code
+                                            (Github) ⎘</a></p>
+                                    <p>Technologies Used: <b>C#</b> & <b>Unity 3D</b></p>
+                                </tr>
+                            </table>
+                        </td>
+                    </table>
+                    <hr>
+
+                    <h2>Console Grid Game</h2>
+                    <table class="contentTable">
+                        <td width="50%">
+                            <p>
+                                This was a really interesting school project not because it was easy, but because of the
+                                limitations and how I had to overcome them. The project specified a 5×5 maze in which
+                                the player navigates it to find the treasure hidden within. Hidden within are obstacles
+                                in the way to stop the player. The instructor left everything else up to the students.
+                                Only to adhere to the main requirements and be creative.
+                            </p>
+                            <p>
+                                So what I decided to do was challenge myself and create a visual display on the console
+                                and draw the grid based on the given Width and Height of it. As well as drawing the
+                                player’s position correctly in that grid. The core of the program only took about a week
+                                but the last week was just adjusting a 1D string array to draw onto a 2D screen from top
+                                left being (0,0) instead of the mathematically traditional (0,0) being center screen.
+                            </p>
+                            <p>
+                                I wanted to make the program cross-platform with any platform but couldn’t find a
+                                suitable solution in time by the deadline to implement screen clearing. I could draw the
+                                grid every update, but then it would make the console screen scroll line by line. I
+                                wanted to imitate a game instead instead of a console program so I used the Windows
+                                screen clearing command. Other than that I was extremely satisfied in getting a drawing
+                                solution to exist, and work for any given grid size.
+                            </p>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <img src="images/software/console_grid_game.jxl" class="blogElement"
+                                        onerror="this.onerror=null; this.src='images/software/console_grid_game.jpg'"
+                                        alt="A computer console with a text created maze." />
+                                </tr>
+                                <tr>
+                                    <p><a href="https://github.com/TheChiefu/HappyBall" target="_blank">Source Code
+                                            (Github) ⎘</a></p>
+                                    <p>Technologies Used: <b>C++</b></p>
+                                </tr>
+                            </table>
+                        </td>
+                    </table>
+                    <hr>
+
+                    <h2>Taurus – Hobby Project</h2>
+                    <table class="contentTable">
+                        <td width="50%">
+                            <p>
+                                Taurus is a game I work on in my free-time to really delve deep into creating video
+                                games. I started working on this project with one of my school friends during my senior
+                                year of high school as part of a game design competition. It started out as a Starfox
+                                like game, putting the player on-rails having enemies spawn from the side of the screen.
+                                I was tasked with creating 3D models and the playable game while my partner worked on
+                                concept art and story ideas.
+                            </p>
+                            <p>
+                                As time progressed and the competition came, we made a playable tutorial level
+                                explaining the details of the game. Once the summer months started in 2017 I worked on
+                                the game on/off slowly improving the game until one day my hard-drive failed and had to
+                                restart. Currently I work on it when I have the free time, but focus on work over the
+                                game. So its a nice side hobby project.
+                            </p>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <img src="images/software/taurus_flight.jxl" class="blogElement"
+                                        onerror="this.onerror=null; this.src='images/software/taurus_flight.jpg'"
+                                        alt="Behind view of a space ship firing a missile at another ship." />
+                                </tr>
+                                <tr>
+                                    <p>Technologies Used: <b>C#</b> & <b>Unity 3D</b></p>
+                                </tr>
+                            </table>
+                        </td>
+                    </table>
+                    <hr>
+
+                    <h2>Reclamation (Demo)</h2>
+                    <table class="contentTable">
+                        <td width="50%">
+                            <p>
+                                Reclamation was a video game concept created in my senior year game design class. This
+                                project was created within the course of a strict 3 month schedule and our teacher gave
+                                us this deadline to give us a realistic perspective of the game development process.
+                            </p>
+                            <p>
+                                Most of the team was tasked with creating concept art, story creation, and gameplay
+                                ideas. I was tasked with taking the concepts and putting the necessary elements into an
+                                interactive demo.
+                            </p>
+                            <p>
+                                As critical as I am with the demo in terms of graphical quality and technical issues, it
+                                did help me get more comfortable in the Unity game engine. I was given limited ideas to
+                                implement in the time period so I tried to make the best of the situation. It all went
+                                well in the end and we presented the concept to our school’s staff and the local news,
+                                which wrote an article about our presentation. Unfortunately most of the people who
+                                worked on the project after graduation weren’t able to work on the project so it was
+                                eventually scrapped.
+                            </p>
+                            <p>
+                                I did however revisit the demo later on in April of 2022 and optimized it to the best of
+                                my ability since it ran so poorly in the past due to inexperience. I called the new
+                                version “Reclamation Redux” and wrote about the process in an <a
+                                    href="./blog/2022-05-21/page.html">article</a> on the site!
+                            </p>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <img src="images/software/reclamation_comparison.jxl" class="blogElement"
+                                        onerror="this.onerror=null; this.src='images/software/reclamation_comparison.jpg'"
+                                        alt="Comparison image of two games with the new being on the bottom left and old being top right." />
+                                </tr>
+                                <tr>
+                                    <p>Technologies Used: <b>C#</b> & <b>Unity 3D</b></p>
+                                </tr>
+                            </table>
+                        </td>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <br /><br />
+    </footer>
+
+</body>
+
+</html>
