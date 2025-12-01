@@ -47,16 +47,23 @@ function renderSidebarList(doc, targetId, items) {
     table.style.border = 'none';
     table.style.borderCollapse = 'collapse';
 
+    const toHref = (href) => {
+        if (!href) return '#';
+        if (/^https?:\/\//i.test(href) || href.startsWith('/')) return href;
+        return `/${href.replace(/^\/+/, '')}`;
+    };
+
     table.innerHTML = items
-        .map(
-            (p) => `
-            <tr style="border: none;">
-                <td style="border: none; padding: 6px 0;">
-                    <a href="${p.href}">${p.title}</a>
-                    <div class="w3-small w3-text-grey">${p.date || ''}</div>
-                </td>
-            </tr>`
-        )
+        .map((p) => {
+            const href = toHref(p.href);
+            return `
+                <tr style="border: none;">
+                    <td style="border: none; padding: 6px 0;">
+                        <a href="${href}" target="_top">${p.title}</a>
+                        <div class="w3-small w3-text-grey">${p.date || ''}</div>
+                    </td>
+                </tr>`;
+        })
         .join('');
 }
 
