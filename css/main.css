@@ -39,10 +39,11 @@
 }
 
 .blogMain {
-    margin:auto;
-    float: left;
+    margin: 0 auto;
+    float: none;
     clear: none;
     display: flex;
+    justify-content: center;
 }
 
 .blogContent a {
@@ -73,7 +74,9 @@
 .blogPageContainer {
     max-width: 1600px;
     min-width: 1000px;
-    width: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
     margin: 32px auto 0;
 }
 
