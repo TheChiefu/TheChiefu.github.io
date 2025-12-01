@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Work, School, and Life - Page 6</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/w3.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="../../scripts/common.js"></script>
+    <script src="../../scripts/blog.js"></script>
+    </style>
+</head>
+
+<header>
+    <div id="header"></div>
+</header>
+
+<body class="w3-light-grey">
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+
+            <div class="blogMain">
+
+                <!-- Content - Left Column -->
+                <div class="w3-white w3-card-4 blogContent">
+
+                    <div class="w3-container">
+
+                        <div class="blogTitleBar">
+                            <table>
+                                <td width="75%">
+                                    <h1 id="title">Work, School, and Life</h1>
+                                    <h4 id="date" class="w3-tag w3-teal w3-round">Written: 2025-09-05</h4>
+                                </td>
+                                <td width="25%">
+                                    <img src="header.jxl" class="blogHeader"
+                                        onerror="this.onerror=null; this.src='header.jpg'" alt="Sunset on a beach" />
+                                </td>
+                            </table>
+                        </div>
+
+                        <br />
+
+                        <h2 id="work">Work</h2>
+                        <h3 id="humble-beginnings">Humble Beginnings</h3>
+
+                        <p>
+                            From what I recall last July (2024), it was still my first year at my current company and I
+                            was still getting used to everything. As I got used to my job I started to feel more
+                            comfortable and confident in my work. Nothing much noteworthy happened for the rest of the
+                            year really, but I did start to make more of an impact at my company. When I first started I
+                            spent the first few months reading documentation, writing some test cases, and updating
+                            things here and there.
+                        </p>
+
+                        <p>
+                            The more I took a look at the code I noticed patterns where code was duplicated and started
+                            experimenting on a local project to see if I could de-duplicate some stuff. After some
+                            successful experiments I brought up them with my manager and talked to him about doing some
+                            work on refactoring the some of the codebase. I knew already he was unhappy with the state
+                            of the python code present in the program so my suggestions weren't too far fetched, to my
+                            delight he wanted to move forward with them.
+                        </p>
+
+                        <p>
+                            For some context, the program I am working on is a requirements gateway tool. So if you have
+                            requirements from say... Codebeamer, Jira, etc you can log on to those services and pull
+                            them in to our local code coverage tool. Basically a linking program from an external
+                            service to your local codebase repository. So you can do some code testing in the main tool,
+                            link the test results to a requirement, and export back to your service.
+                        </p>
+
+                        <p>
+                            Before I joined the gateway tool worked from an end-user's perspective (albeit slightly
+                            buggy) but was a nightmare in the backend to debug. I got frustrated with debugging and my
+                            manager told me how much pain it was for him as well, so I began thinking of solutions to
+                            the problem.
+                        </p>
+
+                        <p>
+                            The primary issue I had was determining the <code>type</code> of data I was working on. In
+                            python you never have to declare what type your variable is. So a variable named "settings"
+                            could literally be anything: a string, a class object, int, whatever; and whoever wrote the
+                            program wrote things in a very C-like style. Sometimes camelcase, naming variables
+                            "m_Username", etc. I'm no python expert (this job is the first time I've actually used it),
+                            but even to me it seemed very messy and very "we got this to work and never touched it
+                            again".
+                        </p>
+
+                        <p>
+                            At first I worked on adding typing to the variables, doing detective work in the debugger to
+                            determine what these variables are doing and if they are even named appropriately. As time
+                            went on, I do code reviews with my manager and we start to ruminate on new ideas to improve
+                            the code. We kept thinking to ourselves that even though the branches on adding hinting and
+                            cleaning up of files is good, that we'd be spending our time better doing a refactor. At the
+                            time we didn't have a clear view on what to do though, not until I did some more
+                            experimenting.
+                        </p>
+
+                        <p>
+                            <img src="2025-07-31_Vector_Work_Setup.jxl" class="blogElementMedium"
+                                alt="My work setup"
+                                onerror="this.onerror=null; this.src='2025-07-31_Vector_Work_Setup.jpg'" />
+                        </p>
+                        <p style="text-align: center;">
+                            <i>
+                                My Work Setup
+                            </i>
+                        </p>
+
+                        <hr/>
+
+                        <h3 id="my-first-big-contribution">My first big contribution</h3>
+
+                        <p>
+                            The first "big" branch I worked on was to help alleviate code debt by cleaning up how we
+                            managed user settings. Before I made any changes we'd save user settings to a file called
+                            "settings.json". Which was clear enough, pretty simple. However the way we read and loaded
+                            that data was a nightmare because our tool dealt with many possible gateway configurations.
+                            In theory a user could use all the available gateways supported by our linking tool, meaning
+                            the settings file contained settings for a possible 6 gateways at once. Again not inhertly
+                            bad but still... large.
+                        </p>
+
+                        <p>
+                            In the code itself we read the settings file into a dictionary at high level. Then in each
+                            supported gateway read the settings object dictionary using keys. So if you wanted to
+                            retrieve the server name it'd look something like:
+                            <code>settings['codebeamer']['server_name']</code>.
+                        </p>
+
+                        <p>
+                            Where you'd hope and pray that when you did that; that one, the settings dictionary actually
+                            existed; two, that the "codebeamer" dictionary existed; and three, that the "server_name"
+                            key existed and that its the type you'd want. Adding to the fact that we'd use different
+                            types (integers, string, etc) you'd have to already know what each key was trying to get.
+                        </p>
+
+                        <p>So I embarked on making a dedicated "Settings" dataclass that contained all the common
+                            settings between all gateways and putting them in there. Making child dataclasses for each
+                            gateway for their specific settings. Adding properties with their expected types added as
+                            type-hints, methods to handle reading and writing to file, notify the user in the console if
+                            a field in their file is an invalid type or doesn't exist, and all that fun stuff. Basically
+                            making it so that anything related to settings was managed and done in that class so someone
+                            implementing new settings doesn't have to make any guesses.
+                        </p>
+
+                        <p>Once that was a success, I then worked on fixing tracing in the program. Our tool is a little
+                            unique in that it can be used as a GUI application in Qt or in a command line. Before I made
+                            any changes, we'd write messages to the GUI using a method called "trace" in a
+                            "gui_handler.py" for <b>every</b> gateway (just reimplementing the same code every time),
+                            and sometimes that'd flow up to the gateway where it could <b>possibly</b> be shown in the
+                            command line.
+                        </p>
+
+                        <p>
+                            I then got to work in ripping out all the duplicate code (around 1000 lines between all 6
+                            gateways), and putting all the tracing logic into a new class I called "Advanced Trace
+                            Handler". Where (like the settings), it contained all the tracing relevant logic in it's own
+                            class. Writing to a specific log level, logging to specific files and levels (import logs,
+                            export logs, import error logs, and so on), adding date/timestamps, user specific settings
+                            like disabling/enabling debug calls, and so on. Again making it easier for us working on the
+                            program to debug and add new features. It was also had a nice addition of being usable to
+                            the end-users to add in their modifications of the program. That and we would trace
+                            everything easily to the GUI and console without any headaches since the logic is in one
+                            place now.
+                        </p>
+
+                        <p>
+                            By the time I got those two big changes tested and implemented I started to think about
+                            fixing how we manage the GUI itself. The two big changes I mentioned before worked fine, but
+                            those were fixing issues in-place without doing much changes to the actual way we manage the
+                            GUI and data flow of the program. The main issues we had debugging were <b>helped</b> by
+                            patching over the issues with settings and tracing but it didn't <b>fix</b> the core issue
+                            of bad program architeture/design. What I noticed about the program what that things were
+                            organized oddly and somewhat arbitarily.
+                        </p>
+
+                        <p>
+                            Using the <b>Codebeamer</b> gateway as an example, we'd have "codebeamer_gateway.py" as the
+                            main source of containing the settings file, GUI classes, and data handling classes. Then
+                            we'd have a "gui_handler.py" to handle GUI specific options that encompassed the
+                            <code>Auth -&gt; Import -&gt; Export</code> process we have in all gateways. A
+                            "data_handler.py" to handle data modification methods between all 3 processes in one place.
+                            Then for each step of the process do it all again "auth_gui_handler.py",
+                            "auth_data_handler.py" (x2). Which in theory isn't bad if you organize it well.
+                        </p>
+
+                        <p>
+                            However, after I started digging through the code I noticed that the names rarely ever
+                            matched up with what they were actually doing. The "gui_handler" files would contain the Qt
+                            logic for creating buttons, line edits, and so on. But it'd also handle the button's click
+                            logic, incoming data from codebeamer, and so on. Then in the "data_handler" files I'd see
+                            sometimes it using Qt method for creating a popup box and again handling the incoming
+                            codebeamer data. By this point I kept thinking to myself, "there has to be a better way to
+                            do this"; especially since whoever designed the program kept throwing the variable
+                            <code>self</code> from one class into another class's method (when <code>self</code> should
+                            be implicit) and also into files where there was no class. The global functions whould just
+                            has an inexplainable and sometimes unused <code>self</code>.
+                        </p>
+                        
+                        <hr/>
+
+                        <h3 id="research-and-development">Research and Development</h3>
+                        <p>
+                            I remember hearing about MVC (Model-View-Controller) design back in college but never
+                            actually read up about it. It wasn't until this point where I started to do some research
+                            and make a tiny project locally to figure out how to design a program on that pattern. Once
+                            I got a prototype finished I then started to modify it using blocks of code from the gateway
+                            program I was working on. Piece by piece I started to produce promising idea. Putting all
+                            the GUI layout code into the "View" class, the logic into the "Model" class, and any
+                            interactions (button clicks, line edit changes, etc) into the "Controller" class. Making it
+                            very easy to distinguish what each piece was doing.
+                        </p>
+
+                        <p>
+                            Once I got the protoype of what I envisioned the direction of the program going towards done
+                            I presented it to my manager. Anxiously I got on a call and we discussed what MVC was, how
+                            it could help us with adding new gateways, and rambling on. Luckily he was completely on
+                            board and brought it up to someone above him, of which they also approved. Once it was
+                            approved I started working closely with my manager on where to start and around Janurary of
+                            this year (2025) I got started on refactoring the code.
+                        </p>
+
+                        <p>
+                            It's September now and we are still working on the entire program refactor. It's taking
+                            longer than I anticipated, but not in a bad way; my manager told me that it would take a
+                            long time to do this anyways. During this refactor process I have learned so much: ways to
+                            cut down on duplicate code (such as with single responsiblity design), networking handling,
+                            multi-threading/async processes, and GUI design/handling (specifically Qt with signals,
+                            slots, and events).
+                        </p>
+
+                        <p>
+                            Now that I've spent a little over a year at this job, I feel like I've completely made up the
+                            time I wasted not coding at my last job. Don't get me wrong, I learned a lot about code
+                            management, devops, and leading at my GM job; it's just that I felt a little disappointed
+                            when I first got out of college and wasn't immediately coding.
+                        </p>
+
+                        <p>Which brings me to my next new adventure, school.</p>
+
+                        <hr />
+
+                        <div style="height: 100px;">
+                            <div style="float: left">
+                                <a href="page_5.html">↰ Previous Page</a>
+                                <br /><br /><a href="page.html">↶ First Page</a>
+                            </div>
+                            <div style="float: right">
+                                <a href="page_7.html">Next Page ↱</a>
+                                <br /><br /><a href="page_10.html">Last Page ↷</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="w3-white  w3-card-4 blogSidebar">
+                    <div id="sidebar"></div>
+                </div>
+
+                <!-- End Grid -->
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+    </div>
+
+    <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <br /><br />
+    </footer>
+
+</body>
+
+</html>
