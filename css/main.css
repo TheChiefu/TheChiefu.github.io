@@ -43,6 +43,7 @@
     float: none;
     clear: none;
     display: flex;
+    max-width: 1200px;
     justify-content: center;
 }
 
